@@ -44,9 +44,9 @@
   .kicker{font:700 13px/1.3 -apple-system,Segoe UI,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--tag)}
   h1{font:700 34px/1.16 Georgia,serif;margin:10px 0 14px;letter-spacing:-.01em}
   .dek{font-size:20px;line-height:1.5;color:#3a3a3a;margin:0 0 16px}
-  .byline{font:14px/1.5 -apple-system,Segoe UI,Arial,sans-serif;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:10px;margin-bottom:22px;display:flex;align-items:center;gap:10px}
-  .byline .avatar{width:38px;height:38px;border-radius:50%;background:var(--soft);border:1px solid var(--line);flex:none}
-  .byline b{color:var(--ink)}
+  .byline{font:14px/1.5 -apple-system,Segoe UI,Arial,sans-serif;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:10px;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .byline-divider{width:1px;align-self:stretch;background:var(--line);flex:none}
+  .byline b{color:var(--ink);font-size:16px}
   figure{margin:26px 0}
   figcaption{font:italic 15px/1.45 Georgia,serif;color:var(--muted);margin-top:7px}
   .imgph{background:var(--soft);border:1px dashed #d8b48a;border-radius:10px;padding:34px 18px;text-align:center;font:14px/1.5 -apple-system,Segoe UI,Arial,sans-serif;color:#9a7a4f}
@@ -138,8 +138,12 @@
       <p class="dek">I've hosted Halloween for my grandkids for years with the same string lights and the same bowl of candy. This year one $40 rug did more than a decade of decorating ever did. Once I understood how the illusion actually works, I stopped feeling silly for falling for it.</p>
 
       <div class="byline">
-        <div class="avatar who-avatar" style="width:38px;height:38px;font-size:16px">C</div>
-        <div><b>Carol R., as told to Hearthside Weekly</b> &middot; September 2026<br>Name and some details have been changed for privacy.</div>
+        <img src="imagens/author-carol.webp" alt="Carol R." style="width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none">
+        <div class="byline-divider"></div>
+        <div>
+          <b>Carol R. &middot; Home &amp; Holidays</b>
+          <div>September 2026 &middot; Name and some details have been changed for privacy.</div>
+        </div>
       </div>
 
       <figure>
@@ -320,11 +324,12 @@
 
     <aside class="sidebar">
       <div class="sidebar-card">
-        <div class="sc-head">This Year's Most-Talked-About Halloween Pick</div>
-        <div class="sc-body">
+        <div class="sc-body" style="position:relative">
           <img src="imagens/product-2.jpg" alt="Skeleton Abyss Halloween rug 3D illusion" style="aspect-ratio:1/1;object-fit:cover;border-radius:8px">
+          <span class="pack-tag" style="position:absolute;top:22px;right:22px;background:var(--accent)">50% Off</span>
           <div style="text-align:center;margin-top:10px">
-            <a class="cta cta-small" data-area="sidebar" href="https://www.fasttrack37.com/PM7HK3TH/33MS3M81/">Check Today's Price &raquo;</a>
+            <a href="#offer" style="display:block;font-weight:700;font-size:16px;text-decoration:underline;margin-bottom:10px" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'});return false;">This Year's #1 Viral Halloween Pick</a>
+            <a class="cta cta-small" data-area="sidebar" href="https://www.fasttrack37.com/PM7HK3TH/33MS3M81/">Get 50% Off Today &raquo;</a>
           </div>
         </div>
       </div>
@@ -347,10 +352,13 @@
   document.getElementById("year").textContent = d.getFullYear();
 
   var OFFER_URL = "https://www.fasttrack37.com/PM7HK3TH/33MS3M81/";
+  var DTC_URL = "https://www.fasttrack37.com/PM7HK3TH/33MS3M81/?uid=61788";
+  var DTC_AREAS = ["pack1", "pack2", "pack3", "pack4"];
   var incoming = new URLSearchParams(location.search);
   document.querySelectorAll('a[data-area]').forEach(function (a) {
     if (a.getAttribute("href").indexOf("#") === 0) return;
-    var url = new URL(OFFER_URL);
+    var base = DTC_AREAS.indexOf(a.dataset.area) !== -1 ? DTC_URL : OFFER_URL;
+    var url = new URL(base);
     incoming.forEach(function (v, k) { url.searchParams.set(k, v); });
     if (incoming.get("tblci")) url.searchParams.set("sub1", incoming.get("tblci"));
     url.searchParams.set("sub2", a.dataset.area);

@@ -103,7 +103,13 @@
   footer.site .wrap{padding-block:24px}
   footer.site a{color:var(--muted)}
   .sidebar{display:none}
+  .mobile-offer{display:flex;align-items:center;gap:12px;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:18px 0 0;font-family:-apple-system,Segoe UI,Arial,sans-serif}
+  .mobile-offer img{width:52px;height:52px;border-radius:8px;object-fit:cover;flex:none}
+  .mobile-offer .txt{flex:1;font-size:14px;line-height:1.3}
+  .mobile-offer .txt b{display:block;font-size:15px;color:var(--accent-dark)}
+  .mobile-offer a.cta{width:auto;flex:none;padding:10px 16px;font-size:14px;box-shadow:none}
   @media (min-width:900px){
+    .mobile-offer{display:none}
     .layout{grid-template-columns:1fr 300px}
     .article-wrap{max-width:700px;margin:0;padding-inline:0}
     .sidebar{display:block;position:sticky;top:20px;align-self:start}
@@ -150,6 +156,17 @@
         <img src="imagens/product-1.jpg" alt="Front door decorated with orange string lights and a bowl of candy, before the rug" width="1200" height="674" fetchpriority="high">
         <figcaption>My setup for the last fifteen Octobers: lights, candy, a couple of pumpkins. Fine. Forgettable.</figcaption>
       </figure>
+
+      <div class="mobile-offer">
+        <img src="imagens/product-2.jpg" alt="Skeleton Abyss rug">
+        <div class="txt"><b>Halloween is close.</b>Order now to have time for it to arrive.</div>
+        <a class="cta" data-area="mobile-top" href="https://www.fasttrack37.com/PM7HK3TH/33MS3M81/">See It &raquo;</a>
+      </div>
+
+      <div class="cta-box">
+        <a class="cta" data-area="cta-top" href="https://www.fasttrack37.com/PM7HK3TH/33MS3M81/">See the Rug That Fooled Everyone &raquo;</a>
+        <div class="cta-note">Halloween is a few weeks out &middot; order with enough time to get it before the 31st</div>
+      </div>
 
       <p class="dropcap">For fifteen years my Halloween setup never changed. A bowl of candy, a string of orange lights that took three tries to untangle, a couple of pumpkins that never got carved on time. It worked. Nobody complained. It just wasn't memorable.</p>
 
@@ -258,6 +275,8 @@
       <h2>Where to get it</h2>
 
       <p>It's sold direct, not in stores. When I checked, there was a discount for ordering more than one style, which made sense for me since I wanted a second one for the living room anyway.</p>
+
+      <div class="note"><b>If you want it for Halloween</b>Order in the next few days. Shipping times can vary, and Halloween falls on October 31st, so the earlier you order, the more buffer you have. Check the estimated delivery window at checkout before you buy.</div>
 
       <div class="packs">
         <div class="pack">
